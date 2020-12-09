@@ -1,0 +1,111 @@
+h2{
+    text-align: center;
+}
+
+#morado{
+    color: white;
+    background-color: blueviolet;    
+    display: block;
+    width: 50%;
+    height: 30%;
+    margin:auto;
+}
+
+#azul{
+    color: white;
+    background-color:cornflowerblue;
+    display: block;
+    margin: auto;
+    width: 50%;
+    height: 30%;
+    margin-top: 8%;
+}
+
+
+#rojo{
+    color: white;
+    background-color:crimson;
+    display: block;
+    margin: auto;
+    width: 50%;
+    height: 30%;
+    margin-top: 8%;
+}
+
+#Menu{
+    margin: auto;
+    padding: inherit;
+    border: 1px solid #ccc;
+    width: 40%;
+    height: 70%;
+}
+
+footer{
+    text-align: center;
+    color: white;
+    background-color: #000000;
+    margin-top: 1px;
+}
+
+#Menu2{
+    margin: auto;
+    padding: inherit;
+    border: 1px solid #ccc;
+    width: 90%;
+    height: 70%;
+    text-align: center;
+}
+
+#Menu3{
+    margin: auto;
+    padding: inherit;
+    border: 1px solid #ccc;
+    width: 90%;
+    height: 70%;
+    text-align: center;
+}
+#btns{
+    margin-top: 5px;
+}
+
+#cance{
+    color: white;
+    background-color: crimson;
+    
+}
+
+@media (max-width:600px){
+    #Menu{
+        width: 80%;
+        height: 90%;
+    }
+    #Menu2{
+        width: 95%;
+        height: 90%;
+    }
+    #Menu3{
+    border: none;
+    width: 99%;
+    height: 90%;
+    
+    }
+    #morado{
+        width: 60%;
+        height: 30%;
+    }
+    #azul{
+        width: 60%;
+        height: 30%;
+    }
+    #rojo{
+        width: 60%;
+        height: 30%;
+    }
+    footer{
+        margin-top: 8%;
+    }
+    #campo{
+        width: 90%;
+        display:inline;
+    }
+}

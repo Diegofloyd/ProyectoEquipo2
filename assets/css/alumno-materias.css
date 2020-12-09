@@ -1,0 +1,80 @@
+h2 {
+    text-align: center;
+}
+
+.medio {
+    display: inline;
+    width: 22%;
+    height: 17%;
+    margin: auto;
+    margin-top: 8%;
+}
+
+#morado {
+    color: white;
+    background-color: blueviolet;
+}
+
+#azul {
+    color: white;
+    background-color: cornflowerblue;
+}
+
+#verde {
+    color: white;
+    background-color: green;
+}
+
+#rojo {
+    color: white;
+    background-color: red;
+}
+
+#vazul {
+    color: white;
+    background-color: aquamarine;
+}
+
+#Menu {
+    margin: auto;
+    padding: inherit;
+    border: 1px solid #ccc;
+    width: 85%;
+    height: 70%;
+}
+
+#menures {
+    width: 100%;
+    padding: 0;
+    display: none;
+}
+
+#menures li {
+    width: 100%;
+    display: inline;
+}
+
+#menures li a {
+    font-family: Helvetica;
+    font-size: 11px;
+    text-decoration: none;
+    float: left;
+    padding: 10px;
+    background-color: #163147;
+    color: #fff;
+}
+
+@media (max-width:500px) {
+    #Menu {
+        width: 80%;
+        height: 90%;
+    }
+    .medio {
+        display: block;
+        width: 40%;
+        height: 15%;
+    }
+    #menures {
+        display: inline;
+    }
+}

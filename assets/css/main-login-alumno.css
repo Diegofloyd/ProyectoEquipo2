@@ -1,0 +1,59 @@
+body {
+    background-image: url("image/fondo\ login.png");
+}
+
+nav {
+    background-image: url("image/Rectángulo\ 18.png");
+}
+
+h2 {
+    text-align: center;
+    color: #FF5F58;
+}
+
+#morado {
+    color: white;
+    background-color: blueviolet;
+    display: block;
+    width: 40%;
+    height: 35%;
+    margin: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#azul {
+    color: white;
+    background-color: cornflowerblue;
+    display: block;
+    margin: auto;
+    width: 40%;
+    height: 35%;
+    margin-top: 8%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#Menu {
+    margin: auto;
+    padding: inherit;
+    border: 1px solid #ccc;
+    width: 40%;
+    height: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 30px;
+    background-color: white;
+}
+
+@media (max-width:600px) {
+    #Menu {
+        width: 80%;
+        height: 90%;
+    }
+    #morado {
+        width: 60%;
+        height: 35%;
+    }
+    #azul {
+        width: 60%;
+        height: 35%;
+    }
+}
