@@ -1,21 +1,25 @@
 <div id="content" class="p-4 p-md-5 pt-5">
             <h2 class="mb-4">Calificaciones Descripción</h2>
             <div class="table-responsive">
-            <table border="1">
+            <table class="table ">
+                            <thead class="thead-dark">
                             <tr>
                             <th>ID</th>
-                            <th>Alumno</th>
+                            <th>Nombre</th>
                             <th>Asignatura</th>
-                            <th>Parcial</th>
-                            <th>Puntaje</th>
+                            <th>Parcial 1</th>
+                            <th>Parcial 2</th>
+                            <th>Parcial 3</th>
                             </tr>
-                            <?php foreach($calAlumno as $calificacion){
+                            </thead>
+                            <?php foreach($osito as $datoA){
                             echo "<tr>";
-                            echo "<td>".$calificacion['idCalificacion'];
-                            echo "<td>".$calificacion['alumno'];
-                            echo "<td>".$calificacion['asignatura'];
-                            echo "<td>".$calificacion['parcial'];
-                            echo "<td>".$calificacion['puntaje'];
+                            echo "<td>".$datoA['idCalificacion'];
+                            echo "<td>".$datoA['alumno'];
+                            echo "<td>".$datoA['asignatura'];
+                            echo "<td>".$datoA['p1'];
+                            echo "<td>".$datoA['p2'];
+                            echo "<td>".$datoA['p3'];
                             echo "</tr>";
                         }?>
              </table>

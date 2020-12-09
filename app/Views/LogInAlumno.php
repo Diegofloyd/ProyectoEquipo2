@@ -35,26 +35,20 @@
         <div id="content" class="p-4 p-md-5 pt-5" id="divbotones">
             <h2 class="mb-4">Iniciar Sesión como Alumno</h2>
             <div id="Menu" class="container">
-                <form action="<?php echo base_url();?>/index.php/Home/Alumno" class="was-validated">
+                <form action="<?php echo base_url();?>/index.php/Home/LoginAlumno" class="was-validated" method="POST">
                     <div class="form-group">
                         <label for="uname" class="text-body">Usuario:</label>
-                        <input type="text" class="form-control bg-secondary" id="uname" placeholder="Enter username" name="pswd" required>
+                        <input type="text" class="form-control bg-secondary" id="nombre" placeholder="Enter username" name="nombre" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field</div>
                     </div>
                     <div class="form-group">
                         <label for="pwd" class="text-body">Password:</label>
-                        <input type="password" class="form-control bg-secondary" id="pwd" placeholder="Enter password" name="pswd" required>
+                        <input type="password" class="form-control bg-secondary" id="contrasena" placeholder="Enter password" name="contrasena" required>
                         <div class="valid-feedback">Valid.</div>
                         <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
-                    <div class="form-group form-check">
-                        <label class="form-check-label">
-                          <input class="form-check-input" type="checkbox" name="remember" required> I agree on blabla.
-                          <div class="valid-feedback">Valid.</div>
-                          <div class="invalid-feedback">Check this checkbox to continue.</div>
-                        </label>
-                    </div>
+               
                     <button type="submit" class="btn btn-primary">Ingresar</button>
                 </form>
 

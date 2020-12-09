@@ -2,15 +2,15 @@
 
 use CodeIgniter\Model;
 
-class calificarProfeModel extends Model
+class usuarioModel extends Model
 {
-    protected $table      = 'calificacion';
-    protected $primaryKey = 'idCalificacion';
+    protected $table      = 'usuario';
+    protected $primaryKey = 'idUsuario';
 
     protected $returnType     = 'array';
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['alumno', 'asignatura', 'p1', 'p1', 'p3'];
+    protected $allowedFields = ['nombre', 'apellidoPaterno', 'apellidoMaterno','contrasena','tipo', 'correo'];
 
     protected $useTimestamps = false;
     protected $createdField  = 'created_at';
@@ -20,4 +20,11 @@ class calificarProfeModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
+
+
+    public function obtenerUsuario($data){
+        $Usuario=$this->db->table('usuario');
+        $Usuario->where($data);
+        return $Usuario->get()->getResultArray();
+    }
 }

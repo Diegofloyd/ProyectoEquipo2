@@ -28,19 +28,26 @@
                     <br>
                     <div class="col-2">
                         <div class="input-group ">
-                            <label for="pwd ">Parcial:</label>
-                            <input class="input--style-4" type="text" name="parcial" id="parcial" value="" required="">
+                            <label for="pwd ">Parcial 1:</label>
+                            <input class="input--style-4" type="text" name="p1" id="p1" value="" required="">
                         </div>
                     </div>
 
                     <br>
+
                     <div class="col-2">
                         <div class="input-group ">
-                            <label for="pwd ">Puntaje:</label>
-                            <input class="input--style-4" type="text" name="puntaje" id="puntaje" value="" required="">
+                            <label for="pwd ">Parcial 2:</label>
+                            <input class="input--style-4" type="text" name="p2" id="p2" value="" required="">
                         </div>
                     </div>
-
+                    <br>
+                    <div class="col-2">
+                        <div class="input-group ">
+                            <label for="pwd ">Parcial 3:</label>
+                            <input class="input--style-4" type="text" name="p3" id="p4" value="" required="">
+                        </div>
+                    </div>
                     <br>
                     <div class="p-t-15">
                         <button type="submit" class="btn btn-primary">Ingresar</button>
@@ -53,7 +60,7 @@
 
     <br>
 
-    <div class="container " >
+    <div class="container ">
         <div class="card " style="width:400px ">
             <img class="card-img-top " src="<?php echo base_url(); ?>/assets/images/img_avatar6.png " alt="Card image " style="width:100% ">
             <div class="card-body ">
@@ -62,7 +69,7 @@
                 <p class="card-text ">Grupo: 2</p>
 
                 <form method="POST" action="<?php echo base_url(); ?>/index.php/Home/Profesor_Calificaciones" role="form">
-                    <div class="col-2">
+                <div class="col-2">
                         <div class="input-group ">
                             <label for="usr ">Alumno: </label>
                             <input class="input--style-4" type="text" name="alumno" id="alumno" value="" required="">
@@ -79,19 +86,26 @@
                     <br>
                     <div class="col-2">
                         <div class="input-group ">
-                            <label for="pwd ">Parcial:</label>
-                            <input class="input--style-4" type="text" name="parcial" id="parcial" value="" required="">
+                            <label for="pwd ">Parcial 1:</label>
+                            <input class="input--style-4" type="text" name="p1" id="p1" value="" required="">
                         </div>
                     </div>
 
                     <br>
+
                     <div class="col-2">
                         <div class="input-group ">
-                            <label for="pwd ">Puntaje:</label>
-                            <input class="input--style-4" type="text" name="puntaje" id="puntaje" value="" required="">
+                            <label for="pwd ">Parcial 2:</label>
+                            <input class="input--style-4" type="text" name="p2" id="p2" value="" required="">
                         </div>
                     </div>
-
+                    <br>
+                    <div class="col-2">
+                        <div class="input-group ">
+                            <label for="pwd ">Parcial 3:</label>
+                            <input class="input--style-4" type="text" name="p3" id="p4" value="" required="">
+                        </div>
+                    </div>
                     <br>
                     <div class="p-t-15">
                         <button type="submit" class="btn btn-primary">Ingresar</button>
@@ -101,8 +115,8 @@
             </div>
         </div>
     </div>
-    
-    
+
+
 
     </section>
 </div>

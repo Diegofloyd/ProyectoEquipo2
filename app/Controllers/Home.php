@@ -1,13 +1,14 @@
-<?php namespace App\Controllers;
+<?php
+
+namespace App\Controllers;
 
 use App\Models\alumnoModel;
 use App\Models\calificarProfeModel;
 use App\Models\asignaturaModel;
-//use App\Models\alumnoModel;
 use App\Models\profeModel;
 use App\Models\horarioModel;
 use CodeIgniter\HTTP\Request;
-use App\Models\UsuarioAlumnoModel;
+use App\Models\usuarioModel;
 
 class Home extends BaseController
 {
@@ -28,25 +29,29 @@ class Home extends BaseController
 
 	public function LoginAlumno()
 	{
-		/*
-		$usuario =$this->request->getPost('correo');
-		$password=$this->request->getPost('matricula');
-		$Usuario = new UsuarioAlumnoModel();
-		$datosUsuario = $Usuario->obtenerUsuarioAlumno(['correo'=> $usuario]);
+		$request=\Config\Services::request();
+		$usuario=$request->getPost('nombre');
+		$password=$request->getPost('contrasena');
+		$Usuario = new usuarioModel();
 
-		if(count($datosUsuario)>0 && password_verify($password, $datosUsuario[0]['matricula'])){
-			$data = [
-				"correo" => $datosUsuario[0]['correo'],
-				"type" => $datosUsuario[0]['type']
-			];
-			$session = session();
-			$session->set($data);
-			
+		$datosUsuario=$Usuario->obtenerUsuario(['nombre'=>$usuario]);
+
+		if(count($datosUsuario)>0 && $password == $datosUsuario[0]['contrasena']){
+
+
+			$nombreUsuario=$datosUsuario[0]['nombre'];
+
+			$session=session();
+			$session->set($nombreUsuario);
+			echo 'Iniciaste sessio';
+			return view('CabeceraAlumno') . view('NavbarModAlumno') . view('LNavAlumno') . view('ConteAlumno') . view('footer');
+
 		}else{
-			//return redirect()->to(base_url('/index.php/Home/Alumno_Horario'))->with('mensaje', '1');
+			echo 'no entraste';
+			
+			return view('LogInAlumno') . view('footer');
+			
 		}
-		*/
-		return view('LogInAlumno') . view('footer');
 	}
 
 	public function LoginProfesor()
@@ -111,12 +116,12 @@ class Home extends BaseController
 	/*Asignaturas*/
 	public function Asignaturas()
 	{
-		
+
 		return view('CabeceraAdmin') . view('NavbarModAdmin') . view('ConteAdAsi') . view('footer');
 	}
 	public function Asignaturas_Alta()
 	{
-		
+
 		return view('CabecAdAsi') . view('NavbarModAdmin') . view('LNavAdminAs') . view('ConteAlAsi') . view('footer');
 	}
 
@@ -158,7 +163,7 @@ class Home extends BaseController
 	}
 	public function Alumno_DaPe()/*Pendiente**/
 	{
-	
+
 		$variable = new alumnoModel($db);
 		$info['osito'] = $variable->findAll();
 		return view('CabeceraAlumno') . view('NavbarModAlumno') . view('LNavAlumno') . view('ConteAlDaPe', $info) . view('footer');
@@ -166,8 +171,9 @@ class Home extends BaseController
 
 	public function Alumno_Calificacion()/*Pendiente**/
 	{
+		
 		$calificacionUp = new calificarProfeModel($db);
-		$infoCal['calAlumno'] = $calificacionUp->findAll();
+		$infoCal['osito'] = $calificacionUp->findAll();
 		return view('CabeceraAlumno') . view('NavbarModAlumno') . view('LNavAlumno') . view('ConteAlCal', $infoCal) . view('footer');
 	}
 
@@ -182,32 +188,33 @@ class Home extends BaseController
 		return view('CabeceraProfe') . view('NavbarModProfe') . view('LNavProfe') . view('ConteProfeAl') . view('footer');
 	}
 	public function Profesor_DatosP()
-	
+
 	{
 		$variable = new profeModel($db);
 		$info['osito'] = $variable->findAll();
 		return view('CabeceraProfe') . view('NavbarModProfe') . view('LNavProfe') . view('ConteProfeDaPe', $info) . view('footer');
 	}
-	public function Profesor_Calificaciones()
-	{	
+	public function Profesor_Calificaciones() //Esto ya esta
+	{
 		$request = \Config\Services::request();
 		$nAlumno = $request->getPost('alumno');
 		$nAsignatura = $request->getPost('asignatura');
-		$parcial = $request->getPost('parcial');
-		$puntaje = $request->getPost('puntaje');
+		$parcial1 = $request->getPost('p1');
+		$parcial2 = $request->getPost('p2');
+		$parcial3 = $request->getPost('p3');
 
 		$data = [
 			'alumno' => $nAlumno,
 			'asignatura' => $nAsignatura,
-			'parcial' => $parcial,
-			'puntaje' => $puntaje
+			'p1' => $parcial1,
+			'p2' => $parcial2,
+			'p3' => $parcial3
 		];
 
 		$calificacionUp = new calificarProfeModel($db);
 		$calificacionUp->insert($data);
-		
+
 		return view('CabeceraProfe') . view('NavbarModProfe') . view('LNavProfe') . view('ConteProfeCal') . view('footer');
-		
 	}
 	public function Profesor_Pagos()
 	{
@@ -216,7 +223,7 @@ class Home extends BaseController
 
 	/*OPERACIONES*/
 	/*ASIGNATURAS*/
-	public function Asignaturas_Insert()
+	public function Asignaturas_Insert()//Esto ya esta
 	{
 		$request = \Config\Services::request();
 		$nombre = $request->getPost('nombre');
@@ -243,6 +250,8 @@ class Home extends BaseController
 			'nombre' => $nombre,
 			'apellidoPaterno' => $apaterno,
 			'apellidoMaterno' => $amaterno,
+			'conrasena' => $amaterno,
+			'tipo' => $amaterno,
 			'correo'    => $correo,
 			'grupo' =>  $grupo
 		];
@@ -276,17 +285,6 @@ class Home extends BaseController
 		$info['osito'] = $variable->findAll();
 		return view('CabecAdUs') . view('NavbarModAdmin') . view('LNavAdminPro') . view('ConteModPro', $info) . view('footer');
 	}
-
-
-
-
-
-
-
-
-
-
-
 	//--------------------------------------------------------------------
 
 }
