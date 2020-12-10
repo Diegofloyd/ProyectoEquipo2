@@ -5,20 +5,25 @@
             <thead class="thead-dark">
                 <tr>
                     <th>ID</th>
-                    <th>Dia</th>
-                    <th>Inicio</th>
-                    <th>Fin</th>
                     <th>Asignatura</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Lunes</td>
-                    <td>01:30</td>
-                    <td>03:00</td>
-                    <td>Matematicas</td>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miercoles</th>
+                    <th>Juves</th>
+                    <th>Viernes</th>
                 </tr>
             </thead>
-
+            <?php foreach ($horario as $calificacion) {
+                echo "<tr>";
+                echo "<td>" . $calificacion['idHorario'];
+                echo "<td>" . $calificacion['asignatura'];
+                echo "<td>" . $calificacion['d1'];
+                echo "<td>" . $calificacion['d2'];
+                echo "<td>" . $calificacion['d3'];
+                echo "<td>" . $calificacion['d4'];
+                echo "<td>" . $calificacion['d5'];
+                echo "</tr>";
+            } ?>
         </table>
 
 

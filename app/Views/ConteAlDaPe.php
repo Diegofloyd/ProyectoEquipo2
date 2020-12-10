@@ -13,7 +13,6 @@
                             <th>Apellido Paterno</th>
                             <th>Apellido Materno</th>
                             <th>Correo</th>
-                            <th>Grupo</th>
                             </tr>
                             </thead>
                             <?php foreach($osito as $datoA){

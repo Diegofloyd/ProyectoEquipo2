@@ -107,6 +107,13 @@
                         </div>
                     </div>
                     <br>
+                    <div class="col-2">
+                        <div class="input-group ">
+                            <label for="pwd ">nombre Alumno:</label>
+                            <input class="input--style-4" type="text" name="p3" id="p4" value="" required="">
+                        </div>
+                    </div>
+                    <br>
                     <div class="p-t-15">
                         <button type="submit" class="btn btn-primary">Ingresar</button>
                     </div>

@@ -12,14 +12,14 @@
                             <th>Parcial 3</th>
                             </tr>
                             </thead>
-                            <?php foreach($osito as $datoA){
+                            <?php foreach($osito as $calificacion){
                             echo "<tr>";
-                            echo "<td>".$datoA['idCalificacion'];
-                            echo "<td>".$datoA['alumno'];
-                            echo "<td>".$datoA['asignatura'];
-                            echo "<td>".$datoA['p1'];
-                            echo "<td>".$datoA['p2'];
-                            echo "<td>".$datoA['p3'];
+                            echo "<td>".$calificacion['idCalificacion'];
+                            echo "<td>".$calificacion['alumno'];
+                            echo "<td>".$calificacion['asignatura'];
+                            echo "<td>".$calificacion['p1'];
+                            echo "<td>".$calificacion['p2'];
+                            echo "<td>".$calificacion['p3'];
                             echo "</tr>";
                         }?>
              </table>

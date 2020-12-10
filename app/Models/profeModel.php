@@ -4,13 +4,13 @@ use CodeIgniter\Model;
 
 class profeModel extends Model
 {
-    protected $table      = 'profesor';
-    protected $primaryKey = 'matricula';
+    protected $table      = 'usuario';
+    protected $primaryKey = 'idUsuario';
 
     protected $returnType     = 'array';
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['nombre', 'apellidoPaterno', 'apellidoMaterno', 'correo'];
+    protected $allowedFields = ['nombre', 'apellidoPaterno', 'apellidoMaterno', 'contrasena', 'tipo', 'correo'];
 
     protected $useTimestamps = false;
     protected $createdField  = 'created_at';

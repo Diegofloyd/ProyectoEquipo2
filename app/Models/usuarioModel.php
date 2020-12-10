@@ -27,4 +27,10 @@ class usuarioModel extends Model
         $Usuario->where($data);
         return $Usuario->get()->getResultArray();
     }
+
+    public function obtenerAlumno($data){
+        $Usuario=$this->db->table('calificacion');
+        $Usuario->where($data);
+        return $Usuario->get()->getResultArray();
+    }
 }

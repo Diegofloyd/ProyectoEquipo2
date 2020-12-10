@@ -4,13 +4,13 @@ use CodeIgniter\Model;
 
 class horarioModel extends Model
 {
-    protected $table      = 'horariomateria';
-    protected $primaryKey = 'idHorarioM';
+    protected $table      = 'horario';
+    protected $primaryKey = 'idHorario';
 
     protected $returnType     = 'array';
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['dia', 'inicio', 'fin', 'asignatura'];
+    protected $allowedFields = ['asignatura', 'd1', 'd2', 'd3', 'd4', 'd5'];
 
     protected $useTimestamps = false;
     protected $createdField  = 'created_at';

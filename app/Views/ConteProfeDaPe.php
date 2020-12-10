@@ -6,33 +6,38 @@
                 <br>
                 <div class="container">
                     <div class="card" style="width:550px">
-                        <img class="card-img-top" src="<?php echo base_url();?>/assets/images/img_avatar1.png" alt="Card image" style="width:100%">
+                        <img class="card-img-top" src="<?php echo base_url(); ?>/assets/images/img_avatar1.png" alt="Card image" style="width:100%">
                         <div class="card-body">
                             <h4 class="card-title">Profesor </h4>
 
                             <table class="table ">
-                            <thead class="thead-dark">
-                            <tr>
-                            <th>Matricula</th>
-                            <th>Nombre</th>
-                            <th>Apellido Paterno</th>
-                            <th>Apellido Materno</th>
-                            <th>Correo</th>
-                            </tr>
-                            </thead>
-                            <?php foreach($osito as $datoP){
-                            echo "<tr>";
-                            echo "<td>".$datoP['matricula'];
-                            echo "<td>".$datoP['nombre'];
-                            echo "<td>".$datoP['apellidoPaterno'];
-                            echo "<td>".$datoP['apellidoMaterno'];
-                            echo "<td>".$datoP['correo'];
-                            echo "</tr>";
-                        }?>
-             </table>
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Apellido Paterno</th>
+                                        <th>Apellido Materno</th>
+                                        <th>Contraseña</th>
+                                        <th>Tipo de Usuario</th>
+                                        <th>Correo</th>
+                                    </tr>
+                                </thead>
+
+                                <td><?php
+                                echo '<tr>';
+                                    echo session('nombre');
+                                    echo session('apellidoPaterno');
+                                    echo session('apellidoMaterno');
+                                    echo session('contrasena');
+                                    echo session('tipo');
+                                    echo session('correo');
+                                    echo '</tr>';
+                                    ?></td>
+
+
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            </div>
+            </section>
