@@ -12,7 +12,7 @@
                         <a href="<?php echo base_url();?>/index.php/Home/Profesor"><span class="fas fa-home mr-3"></span> Pagina Principal</a>
                     </li>
                     <li class="active">
-                        <a href="<?php echo base_url();?>/index.php/Home/Profesor_Pagos"><span class="fa fa-money-bill-wave mr-3"></span> Pagos</a>
+                        <a href="https://www.dropbox.com/s/6z086chfy8bgakj/Aviso%20de%20Privacidad%20Integral%20Planteles.pdf?dl=0"><span class="fa fa-money-bill-wave mr-3"></span> Pagos</a>
                     </li>
                     <li>
                         <a href="https://mail.google.com/mail/u/0/?hl=es-419#inbox"><span class="fab fa-google mr-3"></span> Mi Correo</a>

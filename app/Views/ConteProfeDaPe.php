@@ -5,7 +5,7 @@
                 <h1>Datos Personales</h1>
                 <br>
                 <div class="container">
-                    <div class="card" style="width:550px">
+                    <div class="card" style="width:600px">
                         <img class="card-img-top" src="<?php echo base_url(); ?>/assets/images/img_avatar1.png" alt="Card image" style="width:100%">
                         <div class="card-body">
                             <h4 class="card-title">Profesor </h4>
@@ -22,16 +22,16 @@
                                     </tr>
                                 </thead>
 
-                                <td><?php
-                                echo '<tr>';
-                                    echo session('nombre');
-                                    echo session('apellidoPaterno');
-                                    echo session('apellidoMaterno');
-                                    echo session('contrasena');
-                                    echo session('tipo');
-                                    echo session('correo');
+                                <?php
+                                    echo '<tr>';
+                                    echo '<td>'. session('nombre');
+                                    echo '<td>'.session('apellidoPaterno');
+                                    echo '<td>'.session('apellidoMaterno');
+                                    echo '<td>'.session('contrasena');
+                                    echo '<td>'.session('tipo');
+                                    echo '<td>'.session('correo');
                                     echo '</tr>';
-                                    ?></td>
+                                    ?>
 
 
                             </table>

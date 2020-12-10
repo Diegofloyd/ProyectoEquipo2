@@ -12,6 +12,9 @@
                     <a href="<?php echo base_url();?>/index.php/Home/Profesor_DatosP">
                         <img src="<?php echo base_url();?>/assets/images/perfil-profe.png" alt="Perfil" style="width: 50px">
                     </a>
+                    <li class="nav-item ml-auto">
+                <a class="nav-link" href="<?php echo base_url();?>">Cerras Sesión</a>
+            </li>
 
 
                 </li>

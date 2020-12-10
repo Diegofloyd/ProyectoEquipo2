@@ -72,7 +72,7 @@ class Home extends BaseController
 				return view('LogInAlumno') . view('footer');
 			}
 		} else {
-			echo 'no entraste';
+			//echo 'no entraste';
 
 			return view('LoginAlumno') . view('footer');
 		}

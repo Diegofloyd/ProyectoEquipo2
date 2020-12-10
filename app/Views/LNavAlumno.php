@@ -10,6 +10,9 @@
             </div>
             <h1><a href="index.html" class="logo">Menú</a></h1>
             <ul class="list-unstyled components mb-5">
+            <li class="active">
+                        <a href="<?php echo base_url();?>/index.php/Home/Alumno"><span class="fas fa-home mr-3"></span> Pagina Principal</a>
+                    </li>
                 <li class="active">
                     <a href="<?php echo base_url();?>/index.php/Home/Alumno_Horario"><span class="fa fa-money-check-alt mr-3"></span> Horario</a>
                 </li>
