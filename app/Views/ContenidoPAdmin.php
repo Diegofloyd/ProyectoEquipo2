@@ -3,9 +3,8 @@
         <div id="content" class="p-4 p-md-5 pt-5">
             <h2 class="mb-4">Administrador</h2>
             <div id="Menu">
-                <button type="button" class="btn btn-lg" onclick="location.href='<?php echo base_url();?>/index.php/Home/AdminAlumnos'" id="morado">Alumnos</button>
+                <button type="button" class="btn btn-lg" onclick="location.href='<?php echo base_url();?>/index.php/Home/AdminUsuarios'" id="morado">Usuarios</button>
                 <button type="button" class="btn btn-lg" onclick="location.href='<?php echo base_url();?>/index.php/Home/Asignaturas'" id="azul">Asignaturas</button>
-                <button type="button" class="btn btn-lg" onclick="location.href='<?php echo base_url();?>/index.php/Home/AdminProfes'" id="rojo">Profesores</button>
             </div>
         </div>
     </div>

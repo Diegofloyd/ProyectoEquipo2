@@ -12,10 +12,7 @@
                     <a href="<?php echo base_url();?>/index.php/Home/Asignaturas_Alta"><span class="fa  mr-3"></span> Alta de Asignatura</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url();?>/index.php/Home/Asignaturas_Modificacion"><span class="fa  mr-3"></span> Modificar Asignatura</a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url();?>/index.php/Home/Asignaturas_Baja"><span class="fa fa-sticky-user mr-3"></span> Baja de Asignatura</a>
+                    <a href="<?php echo base_url();?>/index.php/Home/Asignaturas_Visual"><span class="fa  mr-3"></span> Visualizar Asignatura</a>
                 </li>
             </ul>
 

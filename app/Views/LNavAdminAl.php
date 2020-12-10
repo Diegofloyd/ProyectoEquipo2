@@ -9,13 +9,10 @@
             <h1><a href="index.html" class="logo">Menú</a></h1>
             <ul class="list-unstyled components mb-5">
                 <li class="active">
-                    <a href="<?php echo base_url();?>/index.php/Home/Alumnos_Alta"><span class="fa  mr-3"></span> Alta de Alumno</a>
+                    <a href="<?php echo base_url();?>/index.php/Home/Usuarios_Alta"><span class="fa  mr-3"></span> Alta de Usuario</a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url();?>/index.php/Home/Alumnos_Modificacion"><span class="fa  mr-3"></span> Modificar Alumnos</a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url();?>/index.php/Home/Alumnos_Baja"><span class="fa fa-sticky-user mr-3"></span> Baja de Alumnos</a>
+                    <a href="<?php echo base_url();?>/index.php/Home/Usuarios_Visual"><span class="fa  mr-3"></span> Visualizar Usuarios</a>
                 </li>
             </ul>
 

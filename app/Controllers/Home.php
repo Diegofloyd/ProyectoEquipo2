@@ -84,85 +84,45 @@ class Home extends BaseController
 	}
 
 	/*MODULO ADMINISTRADOR*/
-	/*Admin de Alumnos*/
-	public function AdminAlumnos()
+    /*Admin de Alumnos*/
+    public function AdminUsuarios()
 	{
-		return view('CabeceraAdmin') . view('NavbarModAdmin') . view('ConteAdAlum') . view('footer');
+		return view('CabeceraAdmin').view('NavbarModAdmin').view('ConteAdUsu').view('footer');
 	}
-	public function AdminProfes()
+    
+    /*Dentro de AdminUsuarios*/
+    public function Usuarios_Alta()
 	{
-		return view('CabeceraAdmin') . view('NavbarModAdmin') . view('ConteAdProf') . view('footer');
+		return view('CabecAdUs').view('NavbarModAdmin').view('LNavAdminAl').view('ConteAlUsu').view('footer');
 	}
-
-	/*Dentro de AdminAlumnos*/
-	public function Alumnos_Alta()
-	{
-		return view('CabecAdUs') . view('NavbarModAdmin') . view('LNavAdminAl') . view('ConteAlAlu') . view('footer');
+    
+    public function Usuarios_Visual()
+	{   
+		$variable = new usuarioModel($db);
+        $info['osito']=$variable->findAll();
+        return view('CabecAdUs').view('NavbarModAdmin').view('LNavAdminAl').view('ConteViUsu',$info).view('footer');
 	}
+	//---------------------------------------------------------modificado------------------------------------------
 
-	public function Alumnos_Baja()
-	{
-		$variable = new alumnoModel($db);
-		$info['osito'] = $variable->findAll();
-		return view('CabecAdUs') . view('NavbarModAdmin') . view('LNavAdminAl') . view('ConteBaAlu', $info) . view('footer');
-		//return view('CabecAdUs').view('NavbarModAdmin').view('LNavAdminUs').view('ConteBaAlu').view('footer');
-	}
+	
 
-	public function Alumnos_Modificacion()
-	{
-		$variable = new alumnoModel($db);
-		$info['osito'] = $variable->findAll();
-		return view('CabecAdUs') . view('NavbarModAdmin') . view('LNavAdminAl') . view('ConteModAlu', $info) . view('footer');
-	}
-
-	/*Dentro de AdminProfes*/
-	public function Profes_Alta()
-	{
-		return view('CabecAdUs') . view('NavbarModAdmin') . view('LNavAdminPro') . view('ConteAlPro') . view('footer');
-	}
-
-	public function Profes_Baja()
-	{
-		$variable = new profeModel($db);
-		$info['osito'] = $variable->findAll();
-		return view('CabecAdUs') . view('NavbarModAdmin') . view('LNavAdminPro') . view('ConteBaPro', $info) . view('footer');
-	}
-
-	public function Profes_Modificacion()
-	{
-		$variable = new profeModel($db);
-		$info['osito'] = $variable->findAll();
-		return view('CabecAdUs') . view('NavbarModAdmin') . view('LNavAdminPro') . view('ConteModPro', $info) . view('footer');
-	}
-
-
-	/***        ***/
 	/*Asignaturas*/
-	public function Asignaturas()
+    public function Asignaturas()
 	{
-
-		return view('CabeceraAdmin') . view('NavbarModAdmin') . view('ConteAdAsi') . view('footer');
+		return view('CabeceraAdmin').view('NavbarModAdmin').view('ConteAdAsi').view('footer');
 	}
-	public function Asignaturas_Alta()
+    public function Asignaturas_Alta()
 	{
-
-		return view('CabecAdAsi') . view('NavbarModAdmin') . view('LNavAdminAs') . view('ConteAlAsi') . view('footer');
+		return view('CabecAdAsi').view('NavbarModAdmin').view('LNavAdminAs').view('ConteAlAsi').view('footer');
 	}
-
-	public function Asignaturas_Baja()
+    
+    public function Asignaturas_Visual()
 	{
-		$variable = new asignaturaModel($db);
-		$info['osito'] = $variable->findAll();
-
-		return view('CabecAdAsi') . view('NavbarModAdmin') . view('LNavAdminAs') . view('ConteBaAsi', $info) . view('footer');
+        $variable = new asignaturaModel($db);
+        $info['osito']=$variable->findAll();
+		return view('CabecAdAsi').view('NavbarModAdmin').view('LNavAdminAs').view('ConteViAsi',$info).view('footer');
 	}
-
-	public function Asignaturas_Modificacion()
-	{
-		$variable = new asignaturaModel($db);
-		$info['osito'] = $variable->findAll();
-		return view('CabecAdAsi') . view('NavbarModAdmin') . view('LNavAdminAs') . view('ConteModAsi', $info) . view('footer');
-	}
+	//------------------------------------modificacion---------------------------------------------------------
 
 	/*MODULO ALUMNO*/
 	/**/
@@ -189,7 +149,7 @@ class Home extends BaseController
 	public function Alumno_DaPe()/*Pendiente**/
 	{
 
-		$variable = new profeModel($db);
+		$variable = new usuarioModel($db);
 		$info['osito'] = $variable->findAll();
 		return view('CabeceraAlumno') . view('NavbarModAlumno') . view('LNavAlumno') . view('ConteAlDaPe', $info) . view('footer');
 	}
@@ -216,7 +176,7 @@ class Home extends BaseController
 	}
 	public function Profesor_DatosP()
 	{
-		$variable = new profeModel($db);
+		$variable = new usuarioModel($db);
 		$info['osito'] = $variable->find([2]);
 		return view('CabeceraProfe') . view('NavbarModProfe') . view('LNavProfe') . view('ConteProfeDaPe', $info) . view('footer');
 	}
@@ -247,70 +207,120 @@ class Home extends BaseController
 		return view('CabeceraProfe') . view('NavbarModProfe') . view('LNavProfe') . view('ConteProfePag') . view('footer');
 	}
 
+
+
 	/*OPERACIONES*/
-	/*ASIGNATURAS*/
-	public function Asignaturas_Insert() //Esto ya esta
+    /*ASIGNATURAS*/
+    public function Asignaturas_Insert()
 	{
-		$request = \Config\Services::request();
-		$nombre = $request->getPost('nombre');
-		$data = [
+        $request=\Config\Services::request();
+        $nombre=$request->getPost('nombre');
+        $data = [
+			'nombre' =>$nombre 
+		];
+		$variable = new asignaturaModel($db);
+		$variable->insert($data);
+        $info['osito']=$variable->findAll();
+		return view('CabecAdAsi').view('NavbarModAdmin').view('LNavAdminAs').view('ConteViAsi',$info).view('footer');
+	}
+    public function Asignaturas_Update(){
+        $variable = new asignaturaModel($db);
+        $request=\Config\Services::request();
+        $codigo=$request->getPostGet('id');
+        $users=$variable->find([$codigo]);
+        $users=array('users'=>$users); 
+        return view('CabecAdAsi').view('NavbarModAdmin').view('LNavAdminAs').view('ConteViEdiAsi',$users).view('footer');
+    }
+    public function Asignaturas_Update2(){
+        $variable = new asignaturaModel($db);
+        $request=\Config\Services::request();
+        $id=$request->getPost('id');
+        $nombre=$request->getPost('nombre');
+        $data = [
+            'codigo'=>$id,
 			'nombre' => $nombre
 		];
-		$variable = new asignaturaModel($db);
-		$variable->insert($data);
-		$variable = new asignaturaModel($db);
-		$info['osito'] = $variable->findAll();
-		return view('CabecAdAsi') . view('NavbarModAdmin') . view('LNavAdminAs') . view('ConteBaAsi', $info) . view('footer');
+        $variable->update($id,$data);
+        $info['osito']=$variable->findAll();
+        return view('CabecAdAsi').view('NavbarModAdmin').view('LNavAdminAs').view('ConteViAsi',$info).view('footer'); 
+    }
+    public function Asignaturas_Delete(){
+        $variable = new asignaturaModel($db);
+        $request=\Config\Services::request();
+        $codigo=$request->getPostGet('id');
+        $variable->delete($codigo);
+        $info['osito']=$variable->findAll();
+		return view('CabecAdAsi').view('NavbarModAdmin').view('LNavAdminAs').view('ConteViAsi',$info).view('footer');        
 	}
+	
+	//----------------------------------------------modificacion----------------------------------------------
 
 	/*ALUMNO*/
-	public function Alumnos_Insert()
+    public function Usuarios_Insert()
 	{
-		$request = \Config\Services::request();
-		$nombre = $request->getPost('nombre');
-		$apaterno = $request->getPost('apaterno');
-		$amaterno = $request->getPost('amaterno');
-		$correo = $request->getPost('correo');
-		$grupo = $request->getPost('grupo');
-		$data = [
+        $request=\Config\Services::request();
+        $nombre=$request->getPost('nombre');
+        $apaterno=$request->getPost('apaterno');
+        $amaterno=$request->getPost('amaterno');
+        $correo=$request->getPost('correo');
+        $contrasena=$request->getPost('contrasena');
+        $tipo=$request->getPost('tipo');
+        $data = [
 			'nombre' => $nombre,
 			'apellidoPaterno' => $apaterno,
 			'apellidoMaterno' => $amaterno,
-			'conrasena' => $amaterno,
-			'tipo' => $amaterno,
 			'correo'    => $correo,
-			'grupo' =>  $grupo
+			'contrasena' =>  $contrasena,
+            'tipo'=>$tipo
 		];
-
-		$variable = new alumnoModel($db);
+        
+		$variable = new usuarioModel($db);
 		$variable->insert($data);
-		$variable = new alumnoModel($db);
-		$info['osito'] = $variable->findAll();
-		return view('CabecAdUs') . view('NavbarModAdmin') . view('LNavAdminAl') . view('ConteModAlu', $info) . view('footer');
+        $info['osito']=$variable->findAll();
+        return view('CabecAdUs').view('NavbarModAdmin').view('LNavAdminAl').view('ConteViUsu',$info).view('footer');
 	}
-
-
-
-	/*PROFESOR*/
-	public function Profe_Insert()
-	{
-		$request = \Config\Services::request();
-		$nombre = $request->getPost('nombre');
-		$apaterno = $request->getPost('apaterno');
-		$amaterno = $request->getPost('amaterno');
-		$correo = $request->getPost('correo');
-		$data = [
+    
+    public function Usuarios_Update(){
+        $variable = new usuarioModel($db);
+        $request=\Config\Services::request();
+        $idUsuario=$request->getPostGet('id');
+        $users=$variable->find([$idUsuario]);
+        $users=array('users'=>$users);
+        return view('CabecAdUs').view('NavbarModAdmin').view('LNavAdminAl').view('ConteViEdiUsu',$users).view('footer');
+    }
+    public function Usuarios_Update2(){
+        $variable = new usuarioModel($db);
+        $request=\Config\Services::request();
+        $id=$request->getPost('id');
+        $nombre=$request->getPost('nombre');
+        $apaterno=$request->getPost('apaterno');
+        $amaterno=$request->getPost('amaterno');
+        $correo=$request->getPost('correo');
+        $contrasena=$request->getPost('contrasena');
+        $tipo=$request->getPost('tipo');
+        $data = [
+            'idUsuario'=>$id,
 			'nombre' => $nombre,
 			'apellidoPaterno' => $apaterno,
 			'apellidoMaterno' => $amaterno,
-			'correo'    => $correo
+			'correo'    => $correo,
+			'contrasena' =>  $contrasena,
+           'tipo'=>$tipo
 		];
+        $variable->update($id,$data);
+        $info['osito']=$variable->findAll();
+        return view('CabecAdUs').view('NavbarModAdmin').view('LNavAdminAl').view('ConteViUsu',$info).view('footer');
+        
+    }
+    public function Usuarios_Delete(){
+        $variable = new usuarioModel($db);
+        $request=\Config\Services::request();
+        $idUsuario=$request->getPostGet('id');
+        $variable->delete($idUsuario);
+        $info['osito']=$variable->findAll();
+        return view('CabecAdUs').view('NavbarModAdmin').view('LNavAdminAl').view('ConteViUsu',$info).view('footer');
+    }
 
-		$variable = new profeModel($db);
-		$variable->insert($data);
-		$info['osito'] = $variable->findAll();
-		return view('CabecAdUs') . view('NavbarModAdmin') . view('LNavAdminPro') . view('ConteModPro', $info) . view('footer');
-	}
-	//--------------------------------------------------------------------
+
 
 }
